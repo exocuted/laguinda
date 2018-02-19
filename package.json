@@ -9,6 +9,7 @@
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gh-pages": "^1.1.0",
     "react-helmet": "^5.2.0",
+    "react-tagcloud": "^1.2.0",
     "react-typist": "^2.0.4",
     "react-typist-loop": "0.0.3"
   },

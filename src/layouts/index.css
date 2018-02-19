@@ -743,6 +743,19 @@ pre tt:after {
         inset 0px -11px 16px -10px #333; 
 }
 
+.quienes-somos h3 {
+  font-size: 1.9em;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+
+.tag-cloud-tag {
+  color: #fff !important;
+  padding: 3px 6px;
+  margin: 3px 0px;
+}
+
+
 .quienes-somos * {
   text-align: center;
   color: #fff;

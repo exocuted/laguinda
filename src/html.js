@@ -1,5 +1,7 @@
 import React from "react"
 
+import Favicon from '../assets/png/favicon.png'
+
 let stylesStr
 if (process.env.NODE_ENV === `production`) {
   try {
@@ -29,6 +31,13 @@ module.exports = class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
+          <meta property="og:url"                content="http://laguinda.co" />
+          <meta property="og:type"               content="website" />
+          <meta property="og:title"              content="La Guinda" />
+          <meta property="og:description"        content="Lo hacemos simple, pero significativo" />
+          <meta property="og:image"              content="http://laguinda.co/static/pattern1_com.8b55d105.jpg" />
+          <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+          <link rel="shortcut icon" type="image/png" href={Favicon} />
           {this.props.headComponents}
           {css}
         </head>
@@ -41,7 +50,8 @@ module.exports = class HTML extends React.Component {
           />
           {this.props.postBodyComponents}
         </body>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
       </html>
     )
-  }
+  }  
 }

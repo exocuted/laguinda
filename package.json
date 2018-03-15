@@ -8,6 +8,8 @@
     "gatsby-link": "^1.6.34",
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gh-pages": "^1.1.0",
+    "react-cookie-banner": "^3.0.0",
+    "react-google-maps": "^9.4.5",
     "react-helmet": "^5.2.0",
     "react-tagcloud": "^1.2.0",
     "react-typist": "^2.0.4",

@@ -21,6 +21,9 @@ import c4 from '../../assets/clients/c4.png'
 import c5 from '../../assets/clients/c5.png'
 import c6 from '../../assets/clients/c6.png'
 
+import facebook from '../../assets/png/facebook_laguinda.png'
+import instagram from '../../assets/png/instagram_laguinda.png'
+
 import Xavi from '../../assets/people/c1.jpg'
 import Eneko from '../../assets/people/c2.jpg'
 
@@ -30,6 +33,28 @@ import { TagCloud } from "react-tagcloud";
 
 import Typist from 'react-typist'
 import TypistLoop from 'react-typist-loop'
+
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+
+const MapHome = withScriptjs(withGoogleMap((props) =>
+  <GoogleMap
+    defaultZoom={12}
+    defaultCenter={{ lat: 41.4051687, lng: 2.1556244 }}
+    defaultOptions={{ 
+      styles: mapstyle,
+      streetViewControl: false,
+      scaleControl: false,
+      mapTypeControl: false,
+      panControl: false,
+      zoomControl: false,
+      rotateControl: false,
+      fullscreenControl: false
+    
+    }}
+    >
+    {props.isMarkerShown && <Marker position={{ lat: 41.4051687, lng: 2.1556244 }} />}
+  </GoogleMap>
+))
 
 const xavi_data = [
   { value: "Técnico audiovisual", count: 20 },
@@ -59,6 +84,7 @@ const eneko_data = [
   { value: "GNU/Linux", count: 40 },
 ];
 
+const mapstyle = require('../resources/fancyStyles.json')
 
 const IndexPage = () => (
   <div className="indexContent">
@@ -162,12 +188,6 @@ const IndexPage = () => (
                   ].map(text => <Typist key={text} startDelay={500}>{text}</Typist>)}
                 </TypistLoop>
               </span>
-              <ul>
-                <li>Wordpress</li>
-                <li>E-commerce</li>
-                <li>Landing pages</li>
-                <li>Desarrollo a medida</li>
-              </ul>
             </div>
           </div>
         </div>
@@ -194,12 +214,6 @@ const IndexPage = () => (
                     'Producto'
                   ].map(text => <Typist key={text} startDelay={500}>{text}</Typist>)}
                 </TypistLoop>
-                <ul>
-                  <li>Comercial</li>
-                  <li>Eventos</li>
-                  <li>Books corporativos</li>
-                  <li>Producto</li>
-                </ul>
               </span>
             </div>
           </div>
@@ -217,12 +231,6 @@ const IndexPage = () => (
             <div className="textWrapper">
               <h3>Diseño gráfico</h3>
               <p>Estudiamos la identidad corporativa para seguir la misma línea y transformamos las ideas en contenido publicitario a partir de ellas. Diseñamos, producimos y entregamos en el formato conveniente.</p>
-              <ul>
-                <li>Experiencia de usuario (UI/UX)</li>
-                <li>Creación de contenidos</li>
-                <li>Branding</li>
-                <li>Comunicación visual online y offline</li>
-              </ul>
               <span className="typistWrapper">
                 <TypistLoop interval={3000}>
                   {[
@@ -249,12 +257,6 @@ const IndexPage = () => (
             <div className="textWrapper">
               <h3>Social media</h3>
               <p>Generamos contenido para aumentar la notoriedad, mejoramos la tasa de conversión humanizando la marca, escuchamos al cliente de manera continua y lo fidelizamos. Además, la mayoría de estrategias tienen un menor coste comparándolas con las convencionales u offline.</p>
-              <ul>
-                <li>Creación y gestión de contenidos</li>
-                <li>Analítica</li>
-                <li>Comunicación y engagement</li>
-                <li>Planificación de acciones</li>
-              </ul>
               <span className="typistWrapper">
                 <TypistLoop interval={3000}>
                   {[
@@ -345,19 +347,93 @@ const IndexPage = () => (
 
     <div className="container contact-home">
       <h2 className="text-center" style={{ textAlign: 'center', fontSize: '2.1em' }}>¿Te gusta como trabajamos? Contáctanos!</h2>
+      <h2 className="text-center" style={{ textAlign: 'center', fontSize: '1.9em' }}>Nos encontramos en el coworking de calle Verdi 72, 08012, Barcelona</h2>
       <div className="row">
         <div className="col-md-6">
-          <form name="contact" netlify="netlify">
-
+          <form action="https://formcarry.com/s/r10hapGKM" method="POST" acceptCharset="UTF-8" style={{margin: '40px 0px'}}>
+            <div className="form-group">
+              <label htmlFor="name">Nombre</label>
+              <input type="text" className="form-control" name="name" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input type="email" className="form-control" name="email" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="tel">Teléfono</label>
+              <input type="text" className="form-control" name="tel" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="idea">Tu gran idea</label>
+              <textarea name="idea" className="form-control" rows="5" required></textarea>
+            </div>
+            <div className="form-group">
+              <button type="submit" className="enviar2">Enviar</button>
+            </div>
           </form>
         </div>
         <div className="col-md-6">
-
+        <div className="mapHomeWrapper">
+        <div id="mwr">
+          <MapHome
+    isMarkerShown
+    googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCaW9gQyq4us1xX_2Unr9qLtakMSnUVOn0"
+    loadingElement={<div style={{ height: `500px` }} />}
+    containerElement={<div style={{ height: `500px`, width: '500px', maxWidth: '100%' }} />}
+    mapElement={<div style={{ height: `500px` }} />}
+  />
+  </div>
+          </div>
         </div>
       </div>
     </div>
 
+    <div className="homeFooter">
+          <div className="container-fluid redes">
+            <div style={{ width: '50%', display: 'inline-block', padding: '0px 20px' }}>
+              <a href="https://www.facebook.com/laguinda.co/" target="_blank">
+                <img src={facebook} alt="Facebook de La Guinda" style={{float: 'right'}} />
+              </a>
+              
+            </div>
+            <div style={{ width: '50%', display: 'inline-block', padding: '0px 20px' }}>
+              <a href="https://www.instagram.com/laguinda.co/" target="_blank">
+                <img src={instagram} alt="Instagram de La Guinda" style={{float: 'left'}} />
+              </a>
+            </div>
+
+            <div style={{clear: 'both'}}></div>
+          </div>
+
+          <div className="subfooter">
+            <Link to="/privacidad">Privacidad</Link>
+            <Link to="/legal">Aviso legal</Link>
+            <span>Copyright 2018</span>
+          </div>
+    </div>
+  
   </div>
+  
 )
+if(typeof window !== 'undefined') {
+window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#ad152e"
+      },
+      "button": {
+        "background": "#871326"
+      }
+    },
+    "theme": "edgeless",
+    "position": "bottom-right",
+    "content": {
+      "message": "Navegando en esta web aceptas que usemos cookies para entender mejor a nuestros usuarios.",
+      "dismiss": "Entendido!",
+      "link": "Saber más"
+    }
+  })});
+}
 
 export default IndexPage

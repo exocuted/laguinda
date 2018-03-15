@@ -1,10 +1,12 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+import Logo_cap from '../../../assets/logo_cap.png'
+
 let Header = () => (
   <div
     style={{
-      background: 'rebeccapurple',
+      background: '#ad152e',
       marginBottom: '1.45rem',
     }}
   >
@@ -31,7 +33,15 @@ let Header = () => (
 )
 
 Header = () => (
-  <div className="header"></div>
+  <div className="header">
+  <Link to="/">
+  <img src={Logo_cap} alt={"Logo de la Guinda"} style={{
+          width: '400px',
+          display: 'block',
+          margin: '0 auto'
+        }} />
+  </Link>
+  </div>
 )
 
 export default Header

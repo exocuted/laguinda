@@ -39,7 +39,7 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-map
 const MapHome = withScriptjs(withGoogleMap((props) =>
   <GoogleMap
     defaultZoom={12}
-    defaultCenter={{ lat: 41.4051687, lng: 2.1556244 }}
+    defaultCenter={{ lat: 41.4051999, lng: 2.1660092 }}
     defaultOptions={{ 
       styles: mapstyle,
       streetViewControl: false,
@@ -52,7 +52,7 @@ const MapHome = withScriptjs(withGoogleMap((props) =>
     
     }}
     >
-    {props.isMarkerShown && <Marker position={{ lat: 41.4051687, lng: 2.1556244 }} />}
+    {props.isMarkerShown && <Marker position={{ lat: 41.4051999, lng: 2.1660092 }} />}
   </GoogleMap>
 ))
 
@@ -347,7 +347,8 @@ const IndexPage = () => (
 
     <div className="container contact-home">
       <h2 className="text-center" style={{ textAlign: 'center', fontSize: '2.1em' }}>¿Te gusta como trabajamos? Contáctanos!</h2>
-      <h2 className="text-center" style={{ textAlign: 'center', fontSize: '1.9em' }}>Nos encontramos en el coworking de calle Verdi 72, 08012, Barcelona</h2>
+      <h2 className="text-center" style={{ textAlign: 'center', fontSize: '1.9em' }}>Nos encontramos en el coworking de calle Nàpols 343, 08025, Barcelona</h2>
+      <h4 className="text-center">También puedes llamarnos al 666958086</h4>
       <div className="row">
         <div className="col-md-6">
           <form action="https://formcarry.com/s/r10hapGKM" method="POST" acceptCharset="UTF-8" style={{margin: '40px 0px'}}>
@@ -366,6 +367,11 @@ const IndexPage = () => (
             <div className="form-group">
               <label htmlFor="idea">Tu gran idea</label>
               <textarea name="idea" className="form-control" rows="5" required></textarea>
+            </div>
+            <div className="form-group">
+              <label htmlFor="idea">
+                <input type="checkbox" name="req" required /> Acepto los <Link to="/privacidad">términos y condiciones</Link>
+              </label>
             </div>
             <div className="form-group">
               <button type="submit" className="enviar2">Enviar</button>

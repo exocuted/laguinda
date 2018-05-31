@@ -347,8 +347,6 @@ const IndexPage = () => (
 
     <div className="container contact-home">
       <h2 className="text-center" style={{ textAlign: 'center', fontSize: '2.1em' }}>¿Te gusta como trabajamos? Contáctanos!</h2>
-      <h2 className="text-center" style={{ textAlign: 'center', fontSize: '1.9em' }}>Nos encontramos en el coworking de calle Nàpols 343, 08025, Barcelona</h2>
-      <h4 className="text-center">También puedes llamarnos al 666958086</h4>
       <div className="row">
         <div className="col-md-6">
           <form action="https://formcarry.com/s/r10hapGKM" method="POST" acceptCharset="UTF-8" style={{margin: '40px 0px'}}>
@@ -392,10 +390,15 @@ const IndexPage = () => (
           </div>
         </div>
       </div>
+<div className="contact-details"  style={{marginTop: '70px' }}>
+      <h3 className="text-center" style={{ textAlign: 'center'}}>Nos encontramos en el coworking de calle Nàpols 343, 08025, Barcelona</h3>
+        <h4 className="text-center">¡Llámanos al +34 666 958 086!</h4>
+
+</div>
     </div>
 
     <div className="homeFooter">
-          <div className="container-fluid redes">
+          <div style={{ display: 'none' }} className="container-fluid redes">
             <div style={{ width: '50%', display: 'inline-block', padding: '0px 20px' }}>
               <a href="https://www.facebook.com/laguinda.co/" target="_blank">
                 <img src={facebook} alt="Facebook de La Guinda" style={{float: 'right'}} />
